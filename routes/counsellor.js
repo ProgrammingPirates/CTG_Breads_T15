@@ -49,7 +49,7 @@ router.post('/add-counsellor',
         let success = false;
         // res.json({name:"Rahul Maurya", age: 21});
 
-        // check for errors in input
+        //check for errors in input
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ success, errors: errors.array() });
