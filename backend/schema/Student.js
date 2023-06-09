@@ -4,10 +4,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const StudentSchema = new Schema({
-    // studentid: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "user", // used like foreign key that refers to user schema that have been exported
-    // },
     name: {
         type: String,
         required: true

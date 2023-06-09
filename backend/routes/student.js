@@ -108,7 +108,6 @@ router.post("/student-login",
     async (req, res) => {
         let success = false;
 
-        // console.log(req.body);
         // check for errors in input
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -173,21 +172,52 @@ router.get('/checkstudent', fetchstudent,
 router.post('/assign-counsellor', fetchstudent, 
     async (req, res) => {
         try {
-            const counsellorid = req.body.counsellorid
             const studentid = req.student.id
+            const { counsellorid, date, start, end } = req.body
 
             const student_counsellor = await StudentCounsellor.create({
                 studentid,
-                counsellorid
+                counsellorid,
+                date,
+                start,
+                end
             })
 
             const success = true;
-            res.json({ success, msg: "counsellor assigned to student", student_counsellor });
+            res.json({ success, msg: "counsellor and slot assigned to student", student_counsellor });
         } catch (err) {
             console.error(err.message);
             res.status(500).send("Internal Server Error");
         }
     })
+
+
+router.get('/student-information', fetchstudent, 
+    async(req, res) => {
+        try {
+            const studentid = req.student.id
+
+            let student = await Student.aggregate([{
+                $lookup: {
+                    from: "progresses",
+                    localField: "_id",
+                    foreignField: "studentid",
+                    as: "progress"
+                }
+            }])
+            
+            student = student.filter(s => {
+                return s._id.toString()===studentid
+            })
+
+            const success = true
+            res.json({ success, student })
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: "Internal Server Error" });
+        }
+    }
+)
 
 // Export the module
 module.exports = router;
