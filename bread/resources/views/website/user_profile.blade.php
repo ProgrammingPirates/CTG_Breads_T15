@@ -75,9 +75,9 @@
                                             <a href="javascript:void(0)" onclick="seeData('#Appointments')" class="h-100 w-100">{{ __('Appointments') }}</a></li>
                                         <li class="d-flex text-center">
                                             <a href="javascript:void(0)" class="h-100 w-100" onclick="seeData('#prescription')">{{ __('Prescriptions') }}</a></li>
-                                        <li class="d-flex text-center">
+                                        <!-- <li class="d-flex text-center">
                                             <a href="javascript:void(0)" class="h-100 w-100" onclick="seeData('#Purchased_med')">{{ __('Purchased Medicines')}}</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                                 <div>
@@ -212,7 +212,7 @@
                                                             
                                                                 <th>{{ __('Attechment') }}</th>
                                                             
-                                                                <th>{{ __('View Medicine') }}</th>
+                                    
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -259,7 +259,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>{{__('Laboratory Name')}}</th>
+                                                            <!-- <th>{{__('Laboratory Name')}}</th> -->
                                                             <th>{{__('Prescirption')}}</th>
                                                             <th>{{__('Date time')}}</th>
                                                             
@@ -368,7 +368,7 @@
                                                             </div>
                                                             {{-- <div class="d-flex mt-1  text-center">
                                                                 <i class='bx bx-map'></i>
-                                                                <p class="mb-0 ps-1">{{ $doctor['hospital']['name'] }}</p>
+                                                                <p class="mb-0 ps-1">{{ $doctor['School']['name'] }}</p>
                                                             </div> --}}
 
                                                             <div class="post d-flex mt-2 align-items-center">
@@ -398,7 +398,7 @@
                                                         </div>
                                                        
                                                         <div class="location mt-2 mb-2">
-                                                            @foreach ($doctor['hospital'] as $hospital)
+                                                            @foreach ($doctor['School'] as $hospital)
                                                                 <div class="mt-2">
                                                                     <h6>{{ $hospital['name'] }}</h6>
                                                                     <p style="font-size: 12px;"><i class='bx bx-map' style="font-size: 13px;"></i>{{ $hospital['address'] }}</p>
@@ -441,7 +441,7 @@
                                                 </div>
                                             </div>
                                             <div class="mt-2">
-                                                <p class="text-center patient-image">{{ __('Patient Image') }}</p>
+                                                <p class="text-center patient-image">{{ __('Student Image') }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -471,14 +471,14 @@
                                                     <input type="tel" readonly value="{{ auth()->user()->phone_code }}&nbsp;{{ auth()->user()->phone }}" class="form-control" id="phone">
                                                 </div>
                                             </div>
-                                            <div class="col-md">
+                                            <!-- <div class="col-md">
                                                 <label for="name" class="form-label mb-1">{{__('Language')}}</label>
                                                 <select class="form-select  form-control" name="language">
                                                     @foreach ($languages as $language)
                                                         <option value="{{ $language->name }}" {{ $language->name == auth()->user()->language ? 'selected' : '' }}>{{ $language->name }}</option>
                                                     @endforeach
                                                 </select>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
 
@@ -584,19 +584,19 @@
                         </tr>
                        
                         <tr>
-                            <td>{{ __('Doctor name') }}</td>
+                            <td>{{ __('Counsellor name') }}</td>
                             <td class="doctor_name"></td>
                         </tr>
                         <tr>
-                            <td>{{ __('patient name') }}</td>
-                            <td class="patient_name"></td>
+                            <td>{{ __('Student name') }}</td>
+                            <td class="Student_name"></td>
                         </tr>
                         <tr>
-                            <td>{{ __('patient address') }}</td>
-                            <td class="patient_address"></td>
+                            <td>{{ __('Student address') }}</td>
+                            <td class="Student_address"></td>
                         </tr>
                         <tr>
-                            <td>{{ __('patient age') }}</td>
+                            <td>{{ __('Student age') }}</td>
                             <td class="patient_age"></td>
                         </tr>
                        
@@ -636,19 +636,19 @@
                             <td class="report_id"></td>
                         </tr>
                         <tr>
-                            <td>{{ __('patient name') }}</td>
+                            <td>{{ __('Student name') }}</td>
                             <td class="patient_name"></td>
                         </tr>
                         <tr>
-                            <td>{{ __('patient phone number') }}</td>
+                            <td>{{ __('Student phone number') }}</td>
                             <td class="patient_phone"></td>
                         </tr>
                         <tr>
-                            <td>{{ __('patient age') }}</td>
+                            <td>{{ __('Student age') }}</td>
                             <td class="patient_age"></td>
                         </tr>
                         <tr>
-                            <td>{{ __('patient gender') }}</td>
+                            <td>{{ __('Student gender') }}</td>
                             <td class="patient_gender"></td>
                         </tr>
                         
@@ -664,7 +664,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="purchased_medicine" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="purchased_medicine" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -704,7 +704,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="modal fade" id="add_review" tabindex="-1" aria-labelledby="add_reviewLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

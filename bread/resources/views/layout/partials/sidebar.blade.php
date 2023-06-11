@@ -60,7 +60,7 @@
                 <li class="{{ $activePage == 'treatments' ? 'active' : '' }}">
                     <a href="{{ url('treatments') }}">
                         <i class="fas fa-stethoscope"></i>
-                        <span>{{__('Treatments')}}</span>
+                        <span>{{__('Counslling Session')}}</span>
                     </a>
                 </li>
             @endcan
@@ -90,16 +90,16 @@
                     <span>{{__('medicine Category')}}</span>
                     </a>
                 </li>
-            @endcan
+            @endcan -->
 
             @can('hospital_access')
                 <li class="{{ $activePage == 'hospital' ? 'active' : '' }}">
                     <a href="{{ url('hospital') }}">
                         <i class="far fa-hospital"></i>
-                    <span>{{__('hospital')}}</span>
+                    <span>{{__('School')}}</span>
                     </a>
                 </li>
-            @endcan -->
+            @endcan
 
             @can('doctor_access')
                 <li class="{{ $activePage == 'doctor' ? 'active' : '' }}">
@@ -225,14 +225,14 @@
                 </li>
             @endcan -->
 
-            @can('banner_access')
+            <!-- @can('banner_access')
                 <li class="{{ $activePage == 'banner' ? 'active' : '' }}">
                     <a href="{{ url('banner') }}">
                         <i class="fas fa-angle-double-right"></i>
                     <span>{{__('banner')}}</span>
                     </a>
                 </li>
-            @endcan
+            @endcan -->
 
           <!-- @if (Gate::check('subscription_access') || Gate::check('subscription_history'))
               @if (auth()->user()->hasRole('doctor'))
@@ -300,7 +300,7 @@
                 </a>
               </li>
           @endcan -->
-
+<!-- 
           @can('email_template_access')
               <li class="{{ $activePage == 'template' ? 'active' : '' }}">
                   <a href="{{ url('notification_template') }}">
@@ -308,9 +308,9 @@
                       <span>{{__('Notification template')}}</span>
                   </a>
               </li>
-          @endcan
+          @endcan -->
 
-          @can('role_access')
+          <!-- @can('role_access')
               <li class="{{ $activePage == 'role' ? 'active' : '' }}">
                   <a href="{{ url('role') }}">
                       <i class="fas fa-user-tag"></i>
@@ -326,7 +326,7 @@
                       <span>{{__('Language')}}</span>
                   </a>
               </li>
-          @endcan
+          @endcan -->
 
           @can('report_access')
               <li class="{{ $activePage == 'user_report' ? 'active' : '' }} || {{ $activePage == 'doctor_report' ? 'active' : '' }}">
@@ -339,7 +339,7 @@
                         <a class="nav-link" href="{{ url('user_report') }}">{{__('User Report')}}</a>
                     </li>
                     <li class="{{ $activePage == 'doctor_report' ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('doctor_report') }}">{{__('Doctor Report')}}</a>
+                        <a class="nav-link" href="{{ url('doctor_report') }}">{{__('Counsellor Report')}}</a>
                     </li>
                 </ul>
               </li>
@@ -355,7 +355,7 @@
           @endcan
 
           {{-- Doctor --}}
-          @if (auth()->user()->hasRole('doctor'))
+          @if (auth()->user()->hasRole('Counsellor'))
               @can('doctor_schedule')
                   <li class="{{ $activePage == 'schedule' ? 'active' : '' }}">
                       <a href="{{ url('schedule') }}">
@@ -365,7 +365,7 @@
                   </li>
               @endcan
           @endif
-          @if (auth()->user()->hasRole('doctor'))
+          @if (auth()->user()->hasRole('Counsellor'))
           @can('zoom_setting')
               <li class="{{ $activePage == 'setting' ? 'active' : '' }}">
                   <a href="{{ url('list') }}">

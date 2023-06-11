@@ -1,13 +1,13 @@
 @extends('layout.mainlayout_admin',['activePage' => 'patients'])
 
-@section('title',__('Show Patient Appointment'))
+@section('title',__('Show Student  Appointment'))
 @section('content')
 
 <section class="section">
     @include('layout.breadcrumb',[
         'title' => $user->name . __(' Profile'),
-        'url' => url('patient'),
-        'urlTitle' => __('Patient')
+        'url' => url('Student '),
+        'urlTitle' => __('Student ')
     ])
     <div class="section_body">
         <div class="card">
@@ -22,10 +22,8 @@
                                 <tr>
                                     <th> # </th>
                                     <th>{{__('appointment id')}}</th>
-                                    <th>{{__('Report or patient image')}}</th>
-                                   
-                                    <th>{{__('doctor name')}}</th>
-                                   
+                                    <th>{{__('Report or Student image')}}</th>
+                                    <th>{{__('Counsellor Name')}}</th>
                                     <th>{{__('view appointment')}}</th>
                                     @if (auth()->user()->hasRole('doctor'))
                                         <th>{{__('Add prescription')}}</th>
@@ -48,15 +46,9 @@
                                                 {{__('Image Not available')}}
                                             @endif
                                         </td>
-                                        <td>{{ $currency }}{{ $appointment->amount }}</td>
+                                       
                                         <td>{{ $appointment->doctor['name'] }}</td>
-                                        <td>
-                                            @if ($appointment->payment_status == 1)
-                                                <span class="btn btn-sm bg-success-light">{{__('Paid')}}</span>
-                                            @else
-                                                <span class="btn btn-sm bg-danger-light">{{__('Remaining')}}</span>
-                                            @endif
-                                        </td>
+                                       
                                         <td>
                                             @if($appointment->appointment_status == 'pending' || $appointment->appointment_status == 'PENDING')
                                                 <span class="badge badge-pill bg-warning-light">{{__('Pending')}}</span>
@@ -110,19 +102,19 @@
                         <td class="appointment_id"></td>
                     </tr>
                     <tr>
-                        <td>{{__('Doctor name')}}</td>
+                        <td>{{__('Counsellor name')}}</td>
                         <td class="doctor_name"></td>
                     </tr>
                     <tr>
-                        <td>{{__('patient name')}}</td>
+                        <td>{{__('Student name')}}</td>
                         <td class="patient_name"></td>
                     </tr>
                     <tr>
-                        <td>{{__('patient address')}}</td>
+                        <td>{{__('Student  address')}}</td>
                         <td class="patient_address"></td>
                     </tr>
                     <tr>
-                        <td>{{__('patient age')}}</td>
+                        <td>{{__('Student  age')}}</td>
                         <td class="patient_age"></td>
                     </tr>
                    

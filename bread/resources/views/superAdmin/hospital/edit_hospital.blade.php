@@ -1,13 +1,13 @@
-@extends('layout.mainlayout_admin',['activePage' => 'hospital'])
+@extends('layout.mainlayout_admin',['activePage' => 'Schoo'])
 
-@section('title',__('Edit hospital'))
+@section('title',__('Edit School'))
 @section('content')
 
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('Edit hospital'),
-        'url' => url('hospital'),
-        'urlTitle' => __('Hospital'),
+        'title' => __('Edit School'),
+        'url' => url('school'),
+        'urlTitle' => __('Schhol'),
     ])
 
     <div class="section_body">
@@ -17,7 +17,7 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label class="col-form-label">{{__('Hospital Name')}}</label>
+                        <label class="col-form-label">{{__('School Name')}}</label>
                         <input type="text" value="{{ $hospital->name }}" name="name" class="form-control @error('name') is-invalid @enderror">
                         @error('name')
                         <div class="invalid-feedback">
@@ -35,7 +35,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label class="col-form-label">{{__('Hospital Facility')}}</label>
+                        <label class="col-form-label">{{__('School Address')}}</label>
                         <input type="text" value="{{ $hospital->facility }}" data-role="tagsinput" class="input-tags form-control @error('facility') is-invalid @enderror" name="facility" id="facility">
                         @error('facility')
                         <div class="invalid-feedback">

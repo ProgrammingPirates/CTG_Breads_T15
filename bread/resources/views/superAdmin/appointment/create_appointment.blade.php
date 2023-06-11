@@ -43,8 +43,8 @@
                 <div class="card-body">
                     <div class="row mt-4">
                         <div class="col-lg-6 col-md-6 form-group">
-                            <label class="col-form-label">{{__('Hospital')}}</label>
-                            <select name="hospital_id" class="form-control select2" data-placeholder="Hospital">
+                            <label class="col-form-label">{{__('School')}}</label>
+                            <select name="hospital_id" class="form-control select2" data-placeholder="School">
                                 @foreach ($hospitals as $hospital)
                                 <option value="{{ $hospital->id }}">{{ $hospital->name }}</option>
                                 @endforeach
@@ -90,7 +90,7 @@
                             @enderror
                         </div>
                         <div class="col-lg-6 col-md-6 form-group">
-                            <label for="col-form-label">{{__('Any Note For Doctor ??')}}</label>
+                            <label for="col-form-label">{{__('Any Note For Counsellor ??')}}</label>
                             <input type="note" value="{{ old('note') }}" class="form-control   @error('note') is-invalid @enderror" name="note">
                             @error('note')
                             <div class="invalid-feedback">
@@ -367,4 +367,5 @@
     });
 
 </script>
+
 @endsection

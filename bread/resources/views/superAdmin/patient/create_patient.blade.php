@@ -1,13 +1,13 @@
 @extends('layout.mainlayout_admin',['activePage' => 'patients'])
 
-@section('title',__('Add patient'))
+@section('title',__('Add Student'))
 @section('content')
 
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('Add Patient'),
-        'url' => url('patient'),
-        'urlTitle' => __('Patient'),
+        'title' => __('Add Student'),
+        'url' => url('Student'),
+        'urlTitle' => __('Student'),
     ])
     <div class="section_body">
         <div class="card">
@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <div class="row mt-4">
                         <div class="col-lg-2 col-md-4">
-                            <label for="patient_image" class="col-form-label"> {{__('patient image')}}</label>
+                            <label for="patient_image" class="col-form-label"> {{__('Student image')}}</label>
                             <div class="avatar-upload avatar-box avatar-box-left">
                                 <div class="avatar-edit">
                                     <input type='file' id="image" name="image" accept=".png, .jpg, .jpeg" />
@@ -52,6 +52,25 @@
                                 </div>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <label class="col-form-label">{{__('School')}}</label>
+                                <input type="text" value="{{ old('name') }}" name="name" class="form-control @error('name') is-invalid @enderror">
+                                @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                                                <div class="form-group">
+                        <label class="col-form-label">{{ __('Pin Code') }}</label>
+                        <input type="text" value="{{ old('pin_code') }}" name="pin_code" class="form-control @error('pin_code') is-invalid @enderror">
+                        @error('pin_code')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
                         </div>
                     </div>
 

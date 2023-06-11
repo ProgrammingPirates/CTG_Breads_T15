@@ -1,10 +1,10 @@
 @extends('layout.mainlayout_admin',['activePage' => 'home'])
 
-@section('title',__('Doctor Home'))
+@section('title',__('Counseller Home'))
 @section('content')
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('Doctor Dashboard'),
+        'title' => __('Counseller Dashboard'),
     ])
     <div class="row">
         <div class="col-xl-4 col-sm-6 col-12">
@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>{{__('Total Patient')}}</h4>
+                        <h4>{{__('Total Student')}}</h4>
                     </div>
                     <div class="card-body">
                         <h3>{{ $totalUser }}</h3>
@@ -140,7 +140,7 @@
                         <table class="w-100 display table datatable text-center">
                             <thead>
                                 <tr>
-                                    <th>{{__('Patient Name')}}</th>
+                                    <th>{{__('Student Name')}}</th>
                                     <th>{{__('Phone')}}</th>
                                     <th>{{__('Email')}}</th>
                                     <th>{{__('Gender')}}</th>

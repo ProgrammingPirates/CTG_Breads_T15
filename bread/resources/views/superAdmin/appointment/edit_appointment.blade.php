@@ -10,7 +10,7 @@
         background-size: cover;
         border-radius: 10px;
     }
-   
+
     .bx-image-add:before {
         content: "\ed7f";
     }
@@ -31,6 +31,7 @@
 @section('content')
 
 <section class="section">
+
     @include('layout.breadcrumb',[
     'title' => __('Edit Appointment'),
     'url' => url('appointment'),
@@ -43,8 +44,8 @@
                 <div class="card-body">
                     <div class="row mt-4">
                         <div class="col-lg-6 col-md-6 form-group">
-                            <label class="col-form-label">{{__('Hospital')}}</label>
-                            <select name="hospital_id" class="form-control select2" data-placeholder="Hospital">
+                            <label class="col-form-label">{{__('School')}}</label>
+                            <select name="hospital_id" class="form-control select2" data-placeholder="School">
                                 @foreach ($hospitals as $hospital)
                                 <option value="{{ $hospital->id }}" {{ $appointment->hospital_id == $hospital->id ? 'selected' : '' }}>{{ $hospital->name }}</option>
                                 @endforeach
@@ -56,7 +57,7 @@
                             @enderror
                         </div>
                         <div class="col-lg-6 col-md-6 form-group">
-                            <div class="d-flex">                               
+                            <div class="d-flex">
                                 <a href="javascript:void(0)" type="button" class="d-flex ms-auto" data-toggle="modal" data-target="#exampleModal">
                                     {{ __('Select Location') }}
                                 </a>
@@ -90,7 +91,7 @@
                             @enderror
                         </div>
                         <div class="col-lg-6 col-md-6 form-group">
-                            <label for="col-form-label">{{__('Any Note For Doctor ??')}}</label>
+                            <label for="col-form-label">{{__('Any Note For Counsellor ??')}}</label>
                             <input type="note" value="{{ old('note',$appointment->note) }}" class="form-control  @error('note') is-invalid @enderror" name="note">
                             @error('note')
                             <div class="invalid-feedback">
@@ -111,7 +112,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 form-group">
                             <label for="" class="form-label ">{{__('Appointment Date')}}</label>
-                            <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" value="{{ old('date',$appointment->date) }}" min="{{ Carbon\Carbon::now(env('timezone'))->format('Y-m-d') }}" name="date">
+                            <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" value="{{ old('date',$appointment->date) }}" name="date">
                             <span class="invalid-div text-danger"><span class="date"></span></span>
                             @error('date')
                             <div class="invalid-feedback">
@@ -120,13 +121,13 @@
                             @enderror
                         </div>
                         <div class="col-lg-6 col-md-6 form-group">
-                            <label class="col-form-label">{{__('Time')}}</label>                           
+                            <label class="col-form-label">{{__('Time')}}</label>
                             <select name="time" id="appendTimeslot" class="form-control select2 timeSlot" >
                                 @foreach ($timeslots as $timeslot)
                                     <option value="{{ $timeslot['start_time'] }}" {{ $appointment->time == $timeslot['start_time'] ? 'selected' : '' }}>{{ $timeslot['start_time'] }}</option>
-                                @endforeach                               
-                            </select>  
-                        </div>                           
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-lg-12 col-md-12 form-group">
                             <p>{{ __('Upload Patient Image & Report') }}</p>
                             <div class="row g-2">
@@ -159,9 +160,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>    
+                                            </div>
                                         @endif
-                                    @endfor                                    
+                                    @endfor
                                 @else
                                     <div class="col-md-4 col-sm-6 d-flex justify-content-center">
                                         <div>
@@ -174,7 +175,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>    
+                                    </div>
                                     <div class="col-md-4 col-sm-6 d-flex justify-content-center">
                                         <div>
                                             <div class="img_preview avta-prview-2 shadow mt-3">
@@ -186,7 +187,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>    
+                                    </div>
                                     <div class="col-md-4 col-sm-6 d-flex justify-content-center">
                                         <div>
                                             <div class="img_preview avta-prview-3 shadow mt-3">
@@ -200,7 +201,7 @@
                                         </div>
                                     </div>
                                 @endif
-                                                        
+
                             </div>
                         </div>
                     </div>
@@ -209,7 +210,7 @@
                     <button type="submit" class="btn btn-primary">{{__('Submit')}}</button>
                 </div>
             </form>
-            
+
         </div>
     </div>
 </section>
@@ -233,7 +234,7 @@
                     <div id="map" class="mapClass"></div>
                     <div class="form-group">
                         <textarea name="address" cols="30" class="form-control"
-                            rows="10">{{ __('Rajkot , Gujrat') }}</textarea>
+                            rows="10">{{ __('Kerela , Gujrat') }}</textarea>
                     </div>
                     <div class="modal-footer border-0">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close')
@@ -244,7 +245,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 @endsection
 
@@ -265,7 +266,7 @@
             zoom: 13,
             mapTypeId: "roadmap",
         });
-    
+
         const a = new google.maps.Marker({
             position: {
                 lat: lat,
@@ -274,14 +275,14 @@
             map,
             draggable: true,
         });
-    
+
         google.maps.event.addListener(a, 'dragend', function() {
             geocodePosition(a.getPosition());
             $('#lat').val(a.getPosition().lat().toFixed(5));
             $('#lng').val(a.getPosition().lng().toFixed(5));
         });
     }
-    function geocodePosition(pos) 
+    function geocodePosition(pos)
     {
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({
@@ -294,11 +295,11 @@
         }
         });
     }
-    
 
-    function readURL1(input) 
+
+    function readURL1(input)
     {
-        if (input.files && input.files[0]) 
+        if (input.files && input.files[0])
         {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -315,9 +316,9 @@
         $('input[name="type0"]').val('new');
     });
 
-    function readURL2(input) 
+    function readURL2(input)
     {
-        if (input.files && input.files[0]) 
+        if (input.files && input.files[0])
         {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -334,9 +335,9 @@
         $('input[name="change_iteration1"]').val(1);
     });
 
-    function readURL3(input) 
+    function readURL3(input)
     {
-        if (input.files && input.files[0]) 
+        if (input.files && input.files[0])
         {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -364,12 +365,12 @@
                 date:this.value,
             },
             url: base_url + '/changeTimeslot',
-           
+
             success: function (result)
-            {     
+            {
                 console.log(result.data.length > 0);
                 if (result.data.length > 0)
-                {                        
+                {
                     var items="";
                     $.each(result.data, function(index, item)
                     {
@@ -382,7 +383,7 @@
                             placeholder: "At this time doctor is not availabel please change the date",
                             allowClear: true
                         });
-                }         
+                }
             },
             error: function (err) {
             }
@@ -391,3 +392,5 @@
 
 </script>
 @endsection
+
+

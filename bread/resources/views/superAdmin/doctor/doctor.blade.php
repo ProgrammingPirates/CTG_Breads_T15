@@ -5,7 +5,7 @@
 
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('Doctor'),
+        'title' => __('Counsellor'),
     ])
     @if (session('status'))
         @include('superAdmin.auth.status',[
@@ -29,7 +29,7 @@
                                     <label for="master"></label>
                                 </th>
                                 <th>#</th>
-                                <th>{{__('Doctor Name')}}</th>
+                                <th>{{__('Counsellor Name')}}</th>
                                 <th>{{__('email')}}</th>
                                 <th>{{__('Speciality')}}</th>
                              

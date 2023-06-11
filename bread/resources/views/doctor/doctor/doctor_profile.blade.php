@@ -75,7 +75,7 @@
                         @enderror
                     </div>
                     <div class="col-lg-6 form-group">
-                        <label class="col-form-label">{{__('Hospital')}}</label>
+                        <label class="col-form-label">{{__('Schools')}}</label>
                         <select name="hospital_id[]" class="select2 @error('hospital_id') is-invalid @enderror" multiple>
                             @foreach ($hospitals as $hospital)
                                 <option value="{{ $hospital->id }}" {{ in_array($hospital->id,$doctor->hospital_id) ? 'selected' : '' }}>{{ $hospital->name }}</option>

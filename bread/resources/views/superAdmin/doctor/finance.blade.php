@@ -5,7 +5,7 @@
 
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('Doctor Finance Details'),
+        'title' => __('Counsellor Finance Details'),
         'url' => url('doctor'),
         'urlTitle' =>  __('Doctor'),
     ])
@@ -22,7 +22,7 @@
                     <div class="dropdown-menu" x-placement="bottom-start">
                       <a class="dropdown-item" href="{{ url('doctor/'.$doctor->id.'/'.Str::slug($doctor->name).'/dashboard') }}">{{ __('Appointment') }}</a>
                       <a class="dropdown-item" href="{{ url('doctor/'.$doctor->id.'/'.Str::slug($doctor->name).'/schedule') }}">{{ __('Schedule Timing') }}</a>
-                      <a class="dropdown-item" href="{{ url('doctor/'.$doctor->id.'/'.Str::slug($doctor->name).'/patients') }}">{{ __('Patient') }}</a>
+                      <a class="dropdown-item" href="{{ url('doctor/'.$doctor->id.'/'.Str::slug($doctor->name).'/patients') }}">{{ __('Student') }}</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>{{__('subscription name')}}</th>
-                                    <th>{{__('doctor name')}}</th>
+                                    <th>{{__('Counsellor name')}}</th>
                                     
                                     <th>{{__('Status')}}</th>
                                 </tr>
@@ -63,89 +63,7 @@
             </div>
         @endif
 
-        @if ($doctor->based_on == 'commission')
-            <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <strong>{{__('Last 7 days earning')}}</strong>
-                    @include('superAdmin.auth.exportButtons')
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="monthFinance" class="table datatable table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>{{__('Date')}}</th>
-                                    <th>{{__('Order Amount')}}</th>
-                                    <th>{{__('Admin Commission')}}</th>
-                                    <th>{{__('vendor earning')}}</th>
-                                </tr>
-                            </thead>
-                            <tbody class="month_finance">
-                                @foreach ($appointments as $order)
-                                <tr>
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{ $order['date'] }}</td>
-                                    <td>{{ $currency }}{{ $order['amount'] }}</td>
-                                    <td>{{ $currency }}{{ $order['admin_commission'] }}</td>
-                                    <td>{{ $currency }}{{ $order['doctor_commission'] }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h4>{{__('Settlements')}}</h4>
-                    <span class="badge badge-success">{{__('admin gives to doctor')}}</span>&nbsp;
-                    <span class="badge badge-danger">{{__('doctor gives to admin')}}</span>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>{{__('duration')}}</th>
-                                    <th>{{__('Order count')}}</th>
-                                    <th>{{__('Admin Earning')}}</th>
-                                    <th>{{__('Doctor earning')}}</th>
-                                    <th>{{__('Settles amount')}}</th>
-                                    <th>{{__('view')}}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($settels as $settel)
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td id="duration{{$loop->iteration}}">{{ $settel['duration'] }}</td>
-                                        <td>{{ $settel['d_total_task'] }}</td>
-                                        <td>{{ $currency }}{{ $settel['admin_earning'] }}</td>
-                                        <td>{{ $currency }}{{ $settel['doctor_earning'] }}</td>
-                                        <td>
-                                            @if($settel['d_balance'] > 0)
-                                                {{-- admin dese --}}
-                                                <span class="badge badge-success">{{ $currency }}{{abs($settel['d_balance'])}}</span>
-                                            @else
-                                                {{-- admin lese --}}
-                                                <span class="badge badge-danger">{{ $currency }}{{abs($settel['d_balance'])}}</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary" onclick="show_settle_details({{$loop->iteration}})" data-toggle="modal" data-target="#exampleModal">
-                                                {{__('Show settlement details')}}
-                                            </button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+       
         @endif
     </div>
 </section>

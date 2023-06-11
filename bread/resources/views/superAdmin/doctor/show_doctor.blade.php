@@ -39,7 +39,7 @@
     </div>
     <div class="card">
         <div class="card-header d-flex justify-content-between">
-            <h6>{{ __('Patient Appointment') }}</h6>
+            <h6>{{ __('Student Appointment') }}</h6>
             @include('superAdmin.auth.exportButtons')
         </div>
         <div class="card-body">
@@ -53,10 +53,10 @@
                             </th>
                             <th> # </th>
                             <th>{{__('appointment id')}}</th>
-                            <th>{{__('Report or patient image')}}</th>
+                            <th>{{__('Report or Student image')}}</th>
                            
                             @if (!auth()->user()->hasRole('doctor'))
-                                <th>{{__('doctor name')}}</th>
+                                <th>{{__('Counsellor name')}}</th>
                             @endif
                             <th>{{__('date')}}</th>
                            
@@ -89,7 +89,7 @@
                                         {{__('Image Not available')}}
                                     @endif
                                 </td>
-                                <td>{{ $currency }}{{ $appointment->amount }}</td>
+                                
                                 @if (!auth()->user()->hasRole('doctor'))
                                     <td>{{ $appointment->doctor['name'] }}</td>
                                 @endif
@@ -169,19 +169,19 @@
                         <td class="appointment_id"></td>
                     </tr>
                     <tr>
-                        <td>{{__('Doctor name')}}</td>
+                        <td>{{__('Counsellor name')}}</td>
                         <td class="doctor_name"></td>
                     </tr>
                     <tr>
-                        <td>{{__('patient name')}}</td>
+                        <td>{{__('Student name')}}</td>
                         <td class="patient_name"></td>
                     </tr>
                     <tr>
-                        <td>{{__('patient address')}}</td>
+                        <td>{{__('Student address')}}</td>
                         <td class="patient_address"></td>
                     </tr>
                     <tr>
-                        <td>{{__('patient age')}}</td>
+                        <td>{{__('Student age')}}</td>
                         <td class="patient_age"></td>
                     </tr>
                     

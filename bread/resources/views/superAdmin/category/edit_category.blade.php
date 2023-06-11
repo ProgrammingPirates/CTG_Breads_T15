@@ -49,7 +49,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label class="col-form-label">{{__('Treatments')}}</label>
+                                <label class="col-form-label">{{__('Counslling Session')}}</label>
                                 <select name="treatment_id" class="select2">
                                     @foreach ($treats as $treat)
                                         <option value="{{ $treat->id }}" {{ $treat->id == $category->treatment_id ? 'selected' : '' }}>{{ $treat->name }}</option>

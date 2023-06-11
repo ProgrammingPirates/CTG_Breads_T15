@@ -1,12 +1,12 @@
 @extends('layout.mainlayout_admin',['activePage' => 'patients'])
 
-@section('title',__('All patient'))
+@section('title',__('All Student'))
 
 @section('content')
 
 <section class="section">
     @include('layout.breadcrumb',[
-    'title' => __('Patient'),
+    'title' => __('Student'),
     ])
     <div class="section_body">
         @if (session('status'))

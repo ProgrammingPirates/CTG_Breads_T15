@@ -1,12 +1,12 @@
 @extends('layout.mainlayout_admin',['activePage' => 'treatments'])
 
-@section('title',__('Edit Treatments'))
+@section('title',__('Edit Counslling Session'))
 @section('content')
     <section class="section">
         @include('layout.breadcrumb',[
-            'title' => __('Edit Treatments'),
-            'url' => url('treatments'),
-            'urlTitle' => __('Treatments'),
+            'title' => __('Edit Counslling Session'),
+            'url' => url('Counslling Session'),
+            'urlTitle' => __('Counslling Session'),
         ])
         <div class="card">
             <form action="{{ url('treatments/'.$treatment->id) }}" method="post" enctype="multipart/form-data">
@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-2 col-md-6">
-                            <label for="app_id" class="ul-form__label"> {{__('Treatment image')}}</label>
+                            <label for="app_id" class="ul-form__label"> {{__('Session image')}}</label>
                             <div class="avatar-upload avatar-box avatar-box-left">
                                 <div class="avatar-edit">
                                     <input type='file' id="image" name="image" accept=".png, .jpg, .jpeg" />

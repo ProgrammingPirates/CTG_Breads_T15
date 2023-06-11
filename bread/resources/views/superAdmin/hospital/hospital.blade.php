@@ -65,7 +65,7 @@
                                             @endcan
                                             @can('hospital_gallery_access')
                                                 <a href="{{ url('hospitalGallery/'.$hospital->id) }}" class="btn btn-sm bg-primary-light ml-1">
-                                                    <i class="fe fe-plus"></i> {{('Hospital gallery')}}
+                                                    <i class="fe fe-plus"></i> {{('school Gallery')}}
                                                 </a>
                                             @endcan
                                         @endif

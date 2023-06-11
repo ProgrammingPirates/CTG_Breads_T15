@@ -28,7 +28,7 @@
                 <li class="{{ $activeBar == 'patients' ? 'active' : '' }}">
                     <a href="{{ url('doctor/'.$doctor->id.'/'.Str::slug($doctor->name).'/patients') }}">
                         <i class="fas fa-user-injured"></i>
-                        <span>{{__('Patients')}}</span>
+                        <span>{{__('Student')}}</span>
                     </a>
                 </li>
                 <li class="{{ $activeBar == 'schedule' ? 'active' : '' }}">

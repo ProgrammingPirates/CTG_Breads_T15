@@ -1,4 +1,4 @@
-<!-- @extends('layout.mainlayout_admin',['activePage' => 'commission'])
+@extends('layout.mainlayout_admin',['activePage' => 'commission'])
 
 @section('title',__('Commission'))
 @section('content')
@@ -59,9 +59,7 @@
                                 <th>#</th>
                                 <th>{{__('duration')}}</th>
                                 <th>{{__('Order count')}}</th>
-                                <th>{{__('Admin Earning')}}</th>
-                                <th>{{__('Doctor earning')}}</th>
-                                <th>{{__('Settles amount')}}</th>
+                                
                                 <th>{{__('view')}}</th>
                             </tr>
                         </thead>
@@ -116,4 +114,4 @@
         </div>
     </div>
 </div>
-@endsection -->
+@endsection

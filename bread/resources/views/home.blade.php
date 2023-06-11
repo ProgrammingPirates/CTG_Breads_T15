@@ -96,8 +96,8 @@
                               <thead>
                                   <tr>
                                       <th>{{__('Counsellor Name')}}</th>
-                                      <th>{{__('Counsellor Base on')}}</th>
-                                      <th>{{__('Treatments')}}</th>
+                                      
+                                      <th>{{__('Counslling Session')}}</th>
                                       <th>{{__('Reviews')}}</th>
                                   </tr>
                               </thead>
@@ -109,7 +109,7 @@
                                                 <img class="avatar-img rounded-circle" src="{{ $doctor->full_image }}" alt="User Image"></a>
                                             <a href="{{ url('doctor/'.$doctor->id.'/'.Str::slug($doctor->name).'/dashboard') }}">{{ $doctor->name }}</a>
                                           </td>
-                                          <td>{{ $doctor->based_on }}</td>
+                                         
                                           <td>
                                               @if(isset($doctor->treatment['name']))
                                                   {{ $doctor->treatment['name'] }}

@@ -4,7 +4,7 @@
 @section('content')
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('doctor schedule'),
+        'title' => __('Counsllor schedule'),
     ])
 
         <input type="hidden" name="start_time" value="{{ $doctor->start_time }}">

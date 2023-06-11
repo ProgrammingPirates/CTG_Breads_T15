@@ -25,7 +25,7 @@
                             <li class="nav-item"><a class="nav-link" href="#solid-justified-tab8" data-toggle="tab">{{__('Static Pages')}}</a></li>
                             <li class="nav-item"><a class="nav-link" href="#solid-justified-tab9" data-toggle="tab">{{__('Video Call Setting')}}</a></li>
                         @endif
-                        <li class="nav-item"><a class="nav-link {{ $setting->license_verify == 0 ? 'active' : ''  }}" href="#solid-justified-tab7" data-toggle="tab">{{__('License Setting')}}</a></li>
+                        <li class="nav-item"><a class="nav-link {{ $setting->license_verify == 0 ? 'active' : ''  }}" href="#solid-justified-tab7" data-toggle="tab">{{__('')}}</a></li>
                     </ul>
                     <div class="tab-content mt-3">
                         @if($setting->license_verify == 1)
@@ -93,7 +93,7 @@
 
                                     <div class="row mt-5">
                                         <div class="col-md-4 form-group">
-                                            <label for="business_name" class="col-form-label"> {{__('Business Name')}}</label>
+                                            <label for="business_name" class="col-form-label"> {{__('Website Name')}}</label>
                                             <input type="text" required name="business_name" value="{{ $setting->business_name }}" class="form-control @error('business_name') is-invalid @enderror">
                                             @error('business_name')
                                                 <div class="invalid-feedback">
@@ -140,7 +140,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="app_id" class="col-form-label"> {{__('Order Cancel Thresold By Doctor(In Minutes)')}}</label>
                                         <input type="number" min=1 required value="{{ $setting->auto_cancel }}" name="auto_cancel" class="form-control @error('auto_cancel') is-invalid @enderror">
                                         @error('auto_cancel')
@@ -148,7 +148,7 @@
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                    </div>
+                                    </div> -->
 
                                     <div class="row mt-5">
                                         <div class="col-md-6 form-group">
@@ -159,18 +159,10 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-md-6 form-group">
-                                            <label for="app_id" class="col-form-label"> {{__('Currency')}}</label>
-                                            <select name="currency_code" class="select2">
-                                                @foreach ($currencies as $currency)
-                                                <option value="{{$currency->id}}" {{ $currency->id == $setting->currency_id ? 'selected' : ''}}>{{$currency->country}}&nbsp;&nbsp;({{$currency->currency}})&nbsp;&nbsp;({{$currency->code}})
-                                                </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                        
                                     </div>
 
-                                    <div class="row mt-5">
+                                    <!-- <div class="row mt-5">
                                         <div class="col-md-6 form-group">
                                             <label for="radius" class="col-form-label"> {{__("Radius")}}</label>
                                             <input type="number" min="1" name="radius" class="radius form-control" value="{{ $setting->radius }}">
@@ -197,17 +189,9 @@
 
                                     
 
-                                   
+                                    -->
 
-                                    <div class="form-group default_base_on_com {{$setting->default_base_on != 'commission' ? 'hide' : ''}}">
-                                        <label for="default_commission" class="col-form-label"> {{__("commission (in %)")}}</label>
-                                        <input type="number" min="1" name="default_commission" {{$setting->default_base_on == 'commission' ? 'required' : ''}}  value="{{ $setting->default_commission }}" class="form-control @error('default_commission') is-invalid @enderror default_base_on_com_text">
-                                        @error('default_commission')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label for="map_key" class="col-form-label"> {{__('Google map key')}}</label>
                                         <input type="text" required name="map_key" value="{{ $setting->map_key }}" class="form-control @error('map_key') is-invalid @enderror">
@@ -630,35 +614,35 @@
                                     @csrf
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <label class="col-form-label">{{__('Send Mail To Patient?')}}</label>
+                                        <label class="col-form-label">{{__('Send Mail To Student ?')}}</label>
                                         <label class="cursor-pointer">
                                             <input type="checkbox" name="patient_mail" class="custom-switch-input" value="1" {{ $setting->patient_mail == 1 ? 'checked' : '' }}>
                                             <span class="custom-switch-indicator"></span>
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <label class="col-form-label">{{__('Send Mail To Doctor?')}}</label>
+                                        <label class="col-form-label">{{__('Send Mail To Counsellor?')}}</label>
                                         <label class="cursor-pointer">
                                             <input type="checkbox" name="doctor_mail" class="custom-switch-input" value="1" {{ $setting->doctor_mail == 1 ? 'checked' : '' }}>
                                             <span class="custom-switch-indicator"></span>
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <label class="col-form-label">{{__('Send Push Notification To Patient?')}}</label>
+                                        <label class="col-form-label">{{__('Send Push Notification To Student?')}}</label>
                                         <label class="cursor-pointer">
                                             <input type="checkbox" name="patient_notification" class="custom-switch-input" value="1" {{ $setting->patient_notification == 1 ? 'checked' : '' }}>
                                             <span class="custom-switch-indicator"></span>
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <label class="col-form-label">{{__('Send Push Notification To Doctor?')}}</label>
+                                        <label class="col-form-label">{{__('Send Push Notification To Counsllor?')}}</label>
                                         <label class="cursor-pointer">
                                             <input type="checkbox" name="doctor_notification" class="custom-switch-input" value="1" {{ $setting->doctor_notification == 1 ? 'checked' : '' }}>
                                             <span class="custom-switch-indicator"></span>
                                         </label>
                                     </div>
                                 </div>
-                                <label class="mt-5 text-primary" class="col-form-label">{{__('For Patient :: ')}}</label>
+                                <label class="mt-5 text-primary" class="col-form-label">{{__('For Student :: ')}}</label>
 
                                 <div class="form-group">
                                     <label class="col-form-label">{{__('App ID')}}</label>
@@ -687,7 +671,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <label class="mt-5 text-primary" class="col-form-label">{{__('For Doctor :: ')}}</label>
+                                <label class="mt-5 text-primary" class="col-form-label">{{__('For Counsellor :: ')}}</label>
                                     <div class="form-group">
                                         <label class="col-form-label">{{__('App ID')}}</label>
                                         <input type="text" value="{{ $setting->doctor_app_id }}" name="doctor_app_id" class="form-control @error('doctor_app_id') is-invalid @enderror">
@@ -781,7 +765,7 @@
                             <form action="{{url('update_licence_setting')}}" method="POST">
                                 @csrf
                                     <div class="form-group">
-                                        <label class="col-form-label">{{__('License Code')}}</label>
+                                        <label class="col-form-label">{{__('s')}}</label>
                                         <input type="text" required {{ $setting->license_verify == 1 ? 'disabled' : '' }} value="{{ $setting->license_code }}" name="license_code" class="form-control @error('license_code') is-invalid @enderror">
                                         @error('license_code')
                                         <div class="invalid-feedback">

@@ -5,7 +5,7 @@
 
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('Edit Doctor'),
+        'title' => __('Edit Counseller'),
         'url' => url('doctor'),
         'urlTitle' =>  __('Doctor'),
     ])
@@ -19,7 +19,7 @@
             <div class="card-body">
                 <div class="row mt-4">
                     <div class="col-lg-2 col-md-4">
-                        <label for="Doctor_image" class="ul-form__label"> {{__('Doctor image')}}</label>
+                        <label for="Doctor_image" class="ul-form__label"> {{__('Counsellor image')}}</label>
                         <div class="avatar-upload avatar-box avatar-box-left">
                             <div class="avatar-edit">
                                 <input type='file' id="image" name="image" accept=".png, .jpg, .jpeg" />
@@ -279,7 +279,7 @@
 
                 <div class="row mt-4">
                     <div class="col-lg-4 form-group">
-                        <label class="col-form-group">{{__('Treatments')}}</label>
+                        <label class="col-form-group">{{__('Counslling Session')}}</label>
                         <select name="treatment_id" class="select2 @error('treatment_id') is-invalid @enderror">
                             @foreach ($treatments as $treatment)
                                 <option value="{{ $treatment->id }}" {{ $doctor->treatment_id == $treatment->id ? 'selected' : '' }}>{{ $treatment->name }}</option>

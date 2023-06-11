@@ -1,13 +1,13 @@
 @extends('layout.mainlayout_admin',['activePage' => 'doctor'])
 
-@section('title',__('Show Doctor'))
+@section('title',__('Show Counseller'))
 @section('content')
 
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('Patients'),
-        'url' => url('doctor'),
-        'urlTitle' =>  __('Doctor'),
+        'title' => __('Student'),
+        'url' => url('Counseller'),
+        'urlTitle' =>  __('Counseller'),
     ])
     <div class="section_body">
         <div class="card profile-widget mt-5">

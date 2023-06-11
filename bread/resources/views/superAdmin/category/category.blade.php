@@ -31,7 +31,7 @@
                                 <th> # </th>
                                 <th>{{__('Image')}}</th>
                                 <th>{{__('category name')}}</th>
-                                <th>{{__('treatment Name')}}</th>
+                                <th>{{__('Counslling Session Name')}}</th>
                                
                                 @if (Gate::check('category_edit') || Gate::check('category_delete'))
                                     <th> {{__('Action')}} </th>

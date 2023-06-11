@@ -4,9 +4,9 @@
 @section('content')
     <section class="section">
         @include('layout.breadcrumb',[
-            'title' => __('Add Treatments'),
-            'url' => url('treatments'),
-            'urlTitle' => __('Treatments'),
+            'title' => __('Add Counslling Session'),
+            'url' => url('Counslling Session'),
+            'urlTitle' => __('Counslling Session'),
         ])
         <div class="section-body">
             <div class="card">
@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-2 col-md-6">
-                                <label for="app_id" class="ul-form__label"> {{__('Treatment image')}}</label>
+                                <label for="app_id" class="ul-form__label"> {{__('Session image')}}</label>
                                 <div class="avatar-upload avatar-box avatar-box-left">
                                     <div class="avatar-edit">
                                         <input type='file' id="image" name="image" accept=".png, .jpg, .jpeg" />

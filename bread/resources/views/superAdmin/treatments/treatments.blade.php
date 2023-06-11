@@ -1,11 +1,11 @@
 @extends('layout.mainlayout_admin',['activePage' => 'treatments'])
 
-@section('title',__('All Treatments'))
+@section('title',__('All Counslling Session'))
 @section('content')
 
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('Treatments'),
+        'title' => __('Counslling Session'),
     ])
     <div class="section-body">
         @if (session('status'))

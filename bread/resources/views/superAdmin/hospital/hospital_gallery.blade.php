@@ -4,14 +4,14 @@
 <link rel="stylesheet" href="{{url('assets/plugins/dropzone/dropzone.min.css')}}">
 @endsection
 
-@section('title',__('All Hospital'))
+@section('title',__('All School'))
 @section('content')
 
 <section class="section">
     @include('layout.breadcrumb',[
-        'title' => __('hospital Gallery'),
-        'url' => url('hospital'),
-        'urlTitle' => __('Hospital'),
+        'title' => __('School Photos'),
+        'url' => url('School'),
+        'urlTitle' => __('School'),
     ])
 
         @if (session('status'))

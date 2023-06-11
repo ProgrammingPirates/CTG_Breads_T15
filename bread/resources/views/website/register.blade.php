@@ -1,6 +1,6 @@
 @extends('layout.mainlayout',['active_page' => 'patient register'])
 
-@section('title',__('Patient Register'))
+@section('title',__('Student  Register'))
 
 <link rel="stylesheet" href="{{ url('assets/css/intlTelInput.css') }}" />
 

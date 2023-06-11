@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <div class="row mt-4">
                         <div class="col-lg-2 col-md-4">
-                            <label for="Doctor_image" class="col-form-label"> {{__('Doctor image')}}</label>
+                            <label for="Doctor_image" class="col-form-label"> {{__('Counseller image')}}</label>
                             <div class="avatar-upload avatar-box avatar-box-left">
                                 <div class="avatar-edit">
                                     <input type='file' id="image" name="image" accept=".png, .jpg, .jpeg"  />

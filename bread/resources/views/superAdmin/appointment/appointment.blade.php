@@ -69,16 +69,17 @@
                                 </th>
                                 <th> # </th>
                                 <th>{{__('appointment id')}}</th>
-                                <th>{{__('Report or patient image')}}</th>
-                               
+                                <th>{{__('Report or Student image')}}</th>
+                                <!-- <th>{{__('amount')}}</th> -->
                                 @if (!auth()->user()->hasRole('doctor'))
-                                    <th>{{__('doctor name')}}</th>
+                                    <th>{{__('Counseller name')}}</th>
                                 @endif
                                 <th>{{__('date')}}</th>
-                                
-                                @if (auth()->user()->hasRole('doctor'))
+                                <!-- <th>{{__('payment status')}}</th>
+                                <th>{{__('status')}}</th> -->
+                                <!-- @if (auth()->user()->hasRole('doctor'))
                                     <th>{{__('change status')}}</th>
-                                @endif
+                                @endif -->
                                 <th>{{__('view appointment')}}</th>
                                 @if (auth()->user()->hasRole('doctor'))
                                     <th>{{__('Add prescription')}}</th>
@@ -108,33 +109,39 @@
                                             {{__('Image Not available')}}
                                         @endif
                                     </td>
-                                   
+                                    <!-- <td>{{ $currency }}{{ $appointment->amount }}</td> -->
                                     @if (!auth()->user()->hasRole('doctor'))
                                         <td>{{ $appointment->doctor['name'] }}</td>
                                     @endif
                                     <td>{{ $appointment->date }}<span class="d-block text-info">{{ $appointment->time }}</span></td>
-                                    
+                                    <!-- <td>
+                                        @if ($appointment->payment_status == 1)
+                                            <span class="btn btn-sm btn-sm btn-success">{{__('Paid')}}</span>
+                                        @else
+                                            <span class="btn btn-sm btn-sm btn-danger">{{__('Remaining')}}</span>
+                                        @endif
+                                    </td> -->
                                     <td>
-                                        @if($appointment->appointment_status == 'pending' || $appointment->appointment_status == 'pending' || $appointment->appointment_status == 'PENDING')
+                                        @if($appointment->appointment_status == 'pending' || $appointment->appointment_status == 'PENDING')
                                             <span class="badge badge-pill bg-warning-light">{{__('Pending')}}</span>
                                         @endif
-                                        @if($appointment->appointment_status == 'approved' || $appointment->appointment_status == 'approve' || $appointment->appointment_status == 'APPROVED')
+                                        @if($appointment->appointment_status == 'approved' || $appointment->appointment_status == 'APPROVED' ||$appointment->appointment_status == 'approve' )
                                             <span class="badge badge-pill bg-success-light">{{__('Approved')}}</span>
                                         @endif
-                                        @if($appointment->appointment_status == 'canceled' || $appointment->appointment_status == 'cancel' || $appointment->appointment_status == 'CANCELED')
+                                        @if($appointment->appointment_status == 'canceled' || $appointment->appointment_status == 'CANCELED' || $appointment->appointment_status == 'cancel')
                                             <span class="badge badge-pill bg-danger-light">{{__('Cancelled')}}</span>
                                         @endif
-                                        @if($appointment->appointment_status == 'completed' || $appointment->appointment_status == 'complete' || $appointment->appointment_status == 'COMPLETED')
+                                        @if($appointment->appointment_status == 'completed' || $appointment->appointment_status == 'COMPLETED' || $appointment->appointment_status == 'complete')
                                             <span class="badge badge-pill bg-default-light">{{__('Completed')}}</span>
                                         @endif
                                     </td>
                                     @if (auth()->user()->hasRole('doctor'))
                                     <td class="d-flex w-100">
-                                        @if ($appointment->appointment_status == 'approved' || $appointment->appointment_status == 'approve' ||  $appointment->appointment_status == 'completed')
-                                            <a href="{{ url('completeAppointment/'.$appointment->id) }}" class="btn btn-sm bg-info-light {{ $appointment->appointment_status == 'completed' ? 'disabled' : '' }}">
+                                        @if ($appointment->appointment_status == 'approve' ||  $appointment->appointment_status == 'complete')
+                                            <a href="{{ url('completeAppointment/'.$appointment->id) }}" class="btn btn-sm bg-info-light {{ $appointment->appointment_status == 'complete' ? 'disabled' : '' }}">
                                                 <i class="fas fa-check"></i> {{__('Complete')}}
                                             </a>
-                                        @elseif($appointment->appointment_status == 'pending' || $appointment->appointment_status == 'canceled' || $appointment->appointment_status == 'cancel')
+                                        @elseif($appointment->appointment_status == 'pending' || $appointment->appointment_status == 'cancel')
                                             <a href="{{ url('acceptAppointment/'.$appointment->id) }}" class="btn btn-sm bg-success-light {{ $appointment->appointment_status != 'pending' ? 'disabled' : '' }}">
                                                 <i class="fas fa-check"></i> {{__('Accept')}}
                                             </a>
@@ -208,26 +215,29 @@
                         <td class="appointment_id"></td>
                     </tr>
                     <tr>
-                        <td>{{__('Doctor name')}}</td>
+                        <td>{{__('Counseller name')}}</td>
                         <td class="doctor_name"></td>
                     </tr>
                     <tr>
-                        <td>{{__('Hospital')}}</td>
+                        <td>{{__('School Name')}}</td>
                         <td class="hospital"></td>
                     </tr>
                     <tr>
-                        <td>{{__('patient name')}}</td>
+                        <td>{{__('Student name')}}</td>
                         <td class="patient_name"></td>
                     </tr>
                     <tr>
-                        <td>{{__('patient address')}}</td>
+                        <td>{{__('Student address  + Pin code')}}</td>
                         <td class="patient_address"></td>
                     </tr>
                     <tr>
-                        <td>{{__('patient age')}}</td>
+                        <td>{{__('Student age')}}</td>
                         <td class="patient_age"></td>
                     </tr>
-                   
+                    <!-- <tr>
+                        <td>{{__('amount')}}</td>
+                        <td class="amount"></td>
+                    </tr> -->
                     <tr>
                         <td>{{__('date')}}</td>
                         <td class="date"></td>
@@ -241,10 +251,18 @@
                         <td class="drug_effect"></td>
                     </tr>
                     <tr>
-                        <td>{{__('Doctor Note')}}</td>
+                        <td>{{__('Counseller Note')}}</td>
                         <td class="doctor_note"></td>
                     </tr>
                     
+                    <!-- <tr>
+                        <td>{{__('payment status')}}</td>
+                        <td class="payment_status"></td>
+                    </tr> -->
+                    <!-- <tr>
+                        <td>{{__('payment type')}}</td>
+                        <td class="payment_type"></td>
+                    </tr> -->
                     <tr>
                         <td>{{__('illness information')}}</td>
                         <td class="illness_info"></td>
