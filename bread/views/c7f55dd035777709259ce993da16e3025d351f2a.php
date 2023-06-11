@@ -89,7 +89,5 @@
         </div>
     </div>
 </section>
-
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layout.mainlayout_admin',['activePage' => 'category'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\doctro\resources\views/superAdmin/category/category.blade.php ENDPATH**/ ?>
