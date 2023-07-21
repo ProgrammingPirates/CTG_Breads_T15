@@ -50,6 +50,10 @@ conditions in the working areas w.r.t substance use and addictions among youth a
 - MySQL
 - Collect.chat Chatbot
 
+## PPT
+[Team-15_Breads_PPT.pdf](https://github.com/ProgrammingPirates/CTG_Breads_T15/files/12130476/Team-15_Breads_PPT.pdf)
+
+
 ## Mentors 
 
 - Sanjeev
